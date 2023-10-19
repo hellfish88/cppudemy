@@ -7,6 +7,10 @@
 //using namespace std;
 
 
+std::string display_player(Player &p) {
+	return p.get_name();
+}
+
 
 int main(){
 	Player anders;
@@ -14,7 +18,7 @@ int main(){
 //	anders.health = 100;
 //	anders.xp = 1;
 	anders.set_health(100);
-//	anders.set_name("Anders");
+	anders.set_name("Anders");
 	anders.talk("Yo");
 	
 	Player *enemy = new Player;
@@ -36,6 +40,7 @@ int main(){
 		std::cout << "Withdraw NOT ok.." << std::endl;
 	}
 	
+	display_player(anders);
 	
 //	(*enemy).name = "Jacob";
 //	enemy->xp = 1;
