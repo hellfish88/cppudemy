@@ -2,7 +2,9 @@
 #include "Player.hpp"
 #include <string>
 
-void  Player::talk(std::string text_to_say){ 
+int Player::num_players = 0;
+
+void  Player::talk(std::string text_to_say) const{ 
 	std::cout << name << " says: " << text_to_say << std::endl; 
 }
 
@@ -32,6 +34,10 @@ std::string Player::get_name() {
 	return name;
 }
 
+int Player::get_num_players() {
+	return num_players;
+}
+
 //Player::Player()
 //	: Player("Spelare", 100, 1) {
 //		std::cout << "No-args def constructor" << std::endl;
@@ -44,6 +50,7 @@ std::string Player::get_name() {
 Player::Player(std::string name_val, int health_val, int xp_val)
 	: name(name_val), experience(xp_val), health(health_val), copy(false) {
 		// std::cout << "Three-args def constructor" << std::endl;
+		++num_players;
 }	 
 
 	Player::Player(const Player &source) 
@@ -54,3 +61,13 @@ Player::Player(std::string name_val, int health_val, int xp_val)
 				std::cout << "Made a copy of " << source.name << " Copy: " << std::boolalpha << copy << std::endl;
 		}
 
+// Destructor
+Player::~Player() {
+	if (this->copy){
+		std::cout << "Destructor for copy " << name << " called" << std::endl;
+	}
+	else {
+		std::cout << "Destructor for " << name << " called" << std::endl;
+	}
+	--num_players;
+}
