@@ -7,13 +7,13 @@
 
 class Movies {
 private:
-    std::vector<Movie> collection;
+    std::vector<Movie*> collection;
     int collection_size;
 
 
 public:
     Movies();
-    std::vector<Movie> get_movies();
+    std::vector<Movie*> get_movies();
     int get_collection_size();
     void list_movies();
     bool add_movie(std::string movie_name = "Unknown", std::string rating_val = "Unknown");
