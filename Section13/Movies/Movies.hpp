@@ -1,9 +1,7 @@
 #ifndef MOVIES_HPP
 #define MOVIES_HPP
-#include <string>
 #include <vector>
 #include "Movie.hpp"
-#include <iostream>
 
 class Movies {
 private:
