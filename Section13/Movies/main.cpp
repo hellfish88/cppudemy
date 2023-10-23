@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Movie.hpp"
 #include "Movies.hpp"
+#include "funcs.hpp"
 
 int main() {
 
@@ -25,8 +26,11 @@ int main() {
     samling->list_movies();
     std::cout << "Samling contains: " << samling->get_collection_size() << " movies." << std::endl;
 
-    for(Movie *m: samling->get_movies()){
-        std::cout << "Namn: " << m->get_times_watched() << std::endl;
-    }
+    // action(menu(), samling);
+    action(samling);
+
+    // for(Movie *m: samling->get_movies()){
+    //     std::cout << "Namn: " << m->get_times_watched() << std::endl;
+    // }
     return 0;
 }

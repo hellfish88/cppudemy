@@ -42,18 +42,18 @@ int Movies::get_times_watched(Movie m){
     return m.get_times_watched();
 }
 
-bool Movies::set_watch_count(std::string m, int count){
-    bool found{false};
-    for (Movie *mov: collection){
-        if (mov->get_name() == m){
-            (*mov).times_watched = count;
-            found = true;
-            return found;
-        }
-    }
-    if (!found)
-        return found;
-}
+// bool Movies::set_watch_count(std::string m, int count){
+//     bool found{false};
+//     for (Movie *mov: collection){
+//         if (mov->get_name() == m){
+//             (*mov).times_watched = count;
+//             found = true;
+//             return found;
+//         }
+//     }
+//     if (!found)
+//         return found;
+// }
 
 int Movies::get_collection_size(){
     return collection_size;

@@ -24,7 +24,7 @@ public:
     // Destructor
     ~Movie();
     // friend class Movies;
-    friend bool set_watch_count(std::string m, int count);
+    // friend bool set_watch_count(std::string m, int count);
 }; 
 
 
