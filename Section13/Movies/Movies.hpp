@@ -18,8 +18,10 @@ public:
     void list_movies();
     bool add_movie(std::string movie_name = "Unknown", std::string rating_val = "Unknown");
     bool remove_movie(std::string movie_name);
-    void watch_movie(std::string);
+    void watch_movie_by_name(std::string);
+    void watch_movie_by_loc(int);
     int get_times_watched(Movie);
+    void list_movies_names();
     // bool set_watch_count(std::string, int);
     // Destructor
     ~Movies();

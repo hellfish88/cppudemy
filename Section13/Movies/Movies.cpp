@@ -11,6 +11,12 @@ void Movies::list_movies(){
     }
 }
 
+void Movies::list_movies_names(){
+    for (size_t i{0}; i < collection.size(); i++){
+        std::cout << "#" << i + 1 << ": " << collection[i]->get_name() << std::endl;
+    }
+}
+
 bool Movies::add_movie(std::string movie_name, std::string rating_val){
     for (Movie *mov: collection){
         if (mov->get_name() == movie_name){
@@ -24,7 +30,7 @@ bool Movies::add_movie(std::string movie_name, std::string rating_val){
     return true;
 }
 
-void Movies::watch_movie(std::string n) {
+void Movies::watch_movie_by_name(std::string n) {
     bool found{false};
     for (Movie *mov: collection){
 //        std::cout << "Debug \"Mov\" name: " << mov->get_name() << std::endl;
@@ -36,6 +42,14 @@ void Movies::watch_movie(std::string n) {
     }
     if (!found)
         std::cout << "Movie not in library" << std::endl;
+}
+
+void Movies::watch_movie_by_loc(int l){
+    if (l > collection.size()){
+        std::cout << "Incorrect decision" << std::endl;
+    } else {
+        collection.at(l-1)->watch();
+    }
 }
 
 int Movies::get_times_watched(Movie m){
