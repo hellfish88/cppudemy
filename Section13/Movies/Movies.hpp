@@ -20,6 +20,7 @@ public:
     bool remove_movie(std::string movie_name);
     void watch_movie(std::string);
     int get_times_watched(Movie);
+    bool set_watch_count(std::string, int);
     // Destructor
     ~Movies();
 }; 

@@ -33,9 +33,12 @@ void Movie::watch() {
 
 Movie::Movie(std::string &n, std::string &r, int t)
     : name(new std::string(n)), rating(new std::string(r)), times_watched(t){
-        std::cout << "Movie contstructor called for: " << name << std::endl;
+        std::cout << "Movie contstructor called for: " << *name << std::endl;
     }
-
+Movie::Movie(std::string &&n, std::string &&r, int t)
+    : name(new std::string(n)), rating(new std::string(r)), times_watched(t){
+        std::cout << "Overloaded R-value Movie contstructor called for: " << *name << std::endl;
+    }
 // Destructor
 
 Movie::~Movie(){

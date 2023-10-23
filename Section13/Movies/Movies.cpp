@@ -12,6 +12,12 @@ void Movies::list_movies(){
 }
 
 bool Movies::add_movie(std::string movie_name, std::string rating_val){
+    for (Movie *mov: collection){
+        if (mov->get_name() == movie_name){
+            std::cout << "Movie already in list." << std::endl;
+            return false;
+        }
+    }
     Movie* newMovie = new Movie(movie_name, rating_val);
     collection.push_back(newMovie);
     collection_size++;
@@ -19,17 +25,34 @@ bool Movies::add_movie(std::string movie_name, std::string rating_val){
 }
 
 void Movies::watch_movie(std::string n) {
+    bool found{false};
     for (Movie *mov: collection){
+//        std::cout << "Debug \"Mov\" name: " << mov->get_name() << std::endl;
         if (mov->get_name() == n){
             mov->watch();
+            found = true;
             break;
         }
     }
-    std::cout << "Movie not in library" << std::endl;
+    if (!found)
+        std::cout << "Movie not in library" << std::endl;
 }
 
 int Movies::get_times_watched(Movie m){
-    m.get_times_watched();
+    return m.get_times_watched();
+}
+
+bool Movies::set_watch_count(std::string m, int count){
+    bool found{false};
+    for (Movie *mov: collection){
+        if (mov->get_name() == m){
+            (*mov).times_watched = count;
+            found = true;
+            return found;
+        }
+    }
+    if (!found)
+        return found;
 }
 
 int Movies::get_collection_size(){
