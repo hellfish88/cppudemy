@@ -1,12 +1,12 @@
 ### VisualStudioCode ###
 .vscode/*
 .codelite/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-!.vscode/*.exe
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-snippets
+.vscode/*.exe
 
 # Local History for Visual Studio Code
 .history/
