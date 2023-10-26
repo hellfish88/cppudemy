@@ -53,7 +53,8 @@
                 "${fileDirname}\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-std=c++11"
+                "-std=c++17",
+                "-fopt-info-vec-optimized"
             ],
             "options": {
                 "cwd": "${fileDirname}"
