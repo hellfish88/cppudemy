@@ -118,29 +118,30 @@ void operator += (String &lhs, const String &rhs){
     delete [] buff;
 }
 
-String operator * (const String &lhs, size_t multiple) {
-    // if (multiple <= 0) {
-    //     return String{};
-    // }
-    char *buff = new char[(std::strlen(lhs.str) * multiple) + 1];
-    std::strcpy(buff, lhs.str);
+String String::operator * (size_t multiple) {
+    if (multiple <= 0) {
+        return String();
+    }
+    char *buff = new char[(std::strlen(this->str) * multiple) + 1];
+    std::strcpy(buff, this->str);
     for (size_t i{1}; i <= multiple - 1; i++)
-        std::strcat(buff, lhs.str);
+        std::strcat(buff, this->str);
     String tmp{buff};
     delete [] buff;
     return tmp;
 }
 
-void operator *= (String &lhs, size_t multiple) {
-    char *buff = new char[(std::strlen(lhs.str) * multiple) + 1];
-    std::strcpy(buff, lhs.str);
-    delete [] lhs.str;
-    lhs.str = new char[(std::strlen(buff) * multiple) + 1];
-    std::strcpy(lhs.str, buff);
-    for (size_t i{1}; i <= multiple - 1; i++)
-        std::strcat(lhs.str, buff);
-    delete [] buff;
-
+String &String::operator *= (size_t multiple) {
+    // char *buff = new char[(std::strlen(lhs.str) * multiple) + 1];
+    // std::strcpy(buff, lhs.str);
+    // delete [] lhs.str;
+    // lhs.str = new char[(std::strlen(buff) * multiple) + 1];
+    // std::strcpy(lhs.str, buff);
+    // for (size_t i{1}; i <= multiple - 1; i++)
+    //     std::strcat(lhs.str, buff);
+    // delete [] buff;
+    *this = *this *multiple;
+    return *this;
 }
     // for (size_t i{0}; i < smallest; i++){
     //     if (std::strcmp(lhs.str[i], rhs.str[i]) )

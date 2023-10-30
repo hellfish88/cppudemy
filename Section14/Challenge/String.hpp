@@ -12,9 +12,7 @@ class String{
     friend bool operator != (const String &lhs, const String &rhs);
     friend bool operator < (const String &lhs, const String &rhs);
     friend bool operator > (const String &lhs, const String &rhs);
-    friend void operator += (String &lhs, const String &rhs);
-    friend String operator * (const String &lhs, size_t);
-    friend void operator *= (String &lhs, size_t);
+    friend void operator += (String &lhs, const String &rhs);  
 
 private:
     char *str;
@@ -34,7 +32,8 @@ public:
 
     // Operators
     String &operator=(const String&);
-    
+    String &operator *= (size_t);
+    String operator * (size_t);
 
 
 

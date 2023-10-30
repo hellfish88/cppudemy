@@ -18,7 +18,7 @@ int main() {
     
     // std::cin >> test;
 
-    test *= 3;
+    test *=2;
 
     std::cout << test << std::endl;
 
