@@ -6,12 +6,12 @@
 
 class Account{
     protected:
-        double balance;
-        std::string name;
+
     private:        
 
     public:
-
+        double balance;
+        std::string name;
     // constructors
         Account();
         Account(std::string);

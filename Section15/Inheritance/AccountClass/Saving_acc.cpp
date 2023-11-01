@@ -1,4 +1,4 @@
-#include "Saving_acc.h"
+#include "Saving_acc.hpp"
 
 Saving_acc::Saving_acc()
     : Account(), interest{2.0}{
@@ -36,6 +36,6 @@ void Saving_acc::deposit(double amount){
 };
 
 std::ostream &operator << (std::ostream &os, const Saving_acc &src) {
-    os << "Saving account balance: " <<  src.balance << 
+    os << "Saving account balance: " <<  src.balance << " With interest " << src.interest;
     return os;
 };

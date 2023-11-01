@@ -1,13 +1,14 @@
 #ifndef _SAVING_ACC_HPP_
 #define _SAVING_ACC_HPP_
-#include "Account.h"
+#include "Account.hpp"
 
 
 class Saving_acc : public Account {
-    friend std::ostream &operator << (std::ostream&, Saving_acc&);
+    // friend 
     protected:
-        double interest;
+        
     public:
+        double interest;
         // Constructor
         Saving_acc();
         Saving_acc(std::string vname, double vint);
@@ -21,7 +22,7 @@ class Saving_acc : public Account {
 
         // Functions
         void deposit(double);
-
+        friend std::ostream &operator << (std::ostream&, Saving_acc&);
 };
 
 #endif
