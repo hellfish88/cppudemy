@@ -15,7 +15,8 @@ int main(){
     test4 += 99999;
     test4 -= 50;
 
-
+    std::cout << test4 << std::endl;
+    
     // test2.deposit(100);
     // test2.withdraw(99);
 

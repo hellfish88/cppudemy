@@ -5,6 +5,7 @@
 
 // Normal account. Name and balance
 class Account {
+    friend std::ostream &operator << (std::ostream&, const Account&);
     private:
 
     protected:

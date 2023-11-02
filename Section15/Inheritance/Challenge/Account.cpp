@@ -47,3 +47,7 @@ Account &Account::operator -= (double amount){
     return *this;
 }
 
+std::ostream &operator << (std::ostream &os, const Account &acc){
+    os << "Balance of " << acc.name << ": " << acc.balance;
+    return os;
+} 
