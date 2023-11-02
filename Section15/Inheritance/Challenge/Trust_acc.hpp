@@ -7,6 +7,7 @@
 class Trust_acc : public Savings_acc {
     private:
         double bonus{50};
+        int withhdrawals;
     protected:
 
     public:
@@ -14,7 +15,9 @@ class Trust_acc : public Savings_acc {
         Trust_acc(std::string);
         ~Trust_acc();
         bool deposit(double);
+        bool withdraw(double);
         Trust_acc &operator += (double);
+        Trust_acc &operator -= (double);
 
 };
 

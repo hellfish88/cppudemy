@@ -14,9 +14,13 @@ int main(){
     test4 += 100001;
     test4 += 99999;
     test4 -= 50;
+    test4 -= 100;
+    test4 -= 100;
+    test4 -= 100;
+
 
     std::cout << test4 << std::endl;
-    
+
     // test2.deposit(100);
     // test2.withdraw(99);
 
