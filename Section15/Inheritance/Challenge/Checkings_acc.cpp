@@ -16,6 +16,7 @@ Checkings_acc::~Checkings_acc(){
 
 bool Checkings_acc::withdraw(double amount){
     amount += fee;
+    std::cout << "Using Checkings account withdraw" << std::endl;
     return Account::withdraw(amount);
 }
 

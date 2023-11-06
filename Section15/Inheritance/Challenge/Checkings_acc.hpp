@@ -13,7 +13,7 @@ class Checkings_acc : public Account {
         Checkings_acc();
         Checkings_acc(std::string);
         ~Checkings_acc();
-        bool withdraw(double);
+        virtual bool withdraw(double);
         Checkings_acc &operator -= (double);
 
 };

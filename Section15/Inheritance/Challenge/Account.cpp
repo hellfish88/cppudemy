@@ -34,6 +34,7 @@ bool Account::withdraw(double amount){
     }
     balance -= amount;
     std::cout << "Withdrew " << amount << " from " << name << '\n';
+    std::cout << "using Account withdraw" << std::endl;
     return true;
 }
 
