@@ -12,11 +12,12 @@
 !*.hpp
 !*.h
 !*.gitignore
+!*/
 
 # Local History for Visual Studio Code
 .history/
 
-# Built Visual Studio Code Extensions
+# Built Visual Studio Code Extensionss
 *.vsix
 
 ### VisualStudioCode Patch ###
