@@ -19,6 +19,10 @@ bool Checkings_acc::withdraw(double amount){
     return Account::withdraw(amount);
 }
 
+bool Checkings_acc::deposit(double amount){
+    return Account::deposit(amount);
+}
+
 Checkings_acc &Checkings_acc::operator -= (double amount) {
     Checkings_acc::withdraw(amount);
     return *this;

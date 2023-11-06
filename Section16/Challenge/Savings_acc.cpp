@@ -44,5 +44,5 @@ Savings_acc::~Savings_acc(){
 };
 
 void Savings_acc::print(std::ostream &os) const {
-    os << "Trust account: " << name << " balance: " << balance << '\n' << "Interest: " << interest << "%";
+    os << "Checking account: " << name << " balance: " << balance << " Interest: " << interest << "%";
 }

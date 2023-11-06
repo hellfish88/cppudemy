@@ -13,9 +13,9 @@ class Trust_acc : public Savings_acc {
     public:
         Trust_acc();
         Trust_acc(std::string);
-        ~Trust_acc();
-        bool deposit(double);
-        bool withdraw(double);
+        virtual ~Trust_acc();
+        virtual bool deposit(double);
+        virtual bool withdraw(double);
         Trust_acc &operator += (double);
         Trust_acc &operator -= (double);
         virtual void print(std::ostream &os) const override;

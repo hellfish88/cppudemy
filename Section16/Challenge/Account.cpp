@@ -15,9 +15,9 @@ Account::Account()
 };
 
 
-Account::~Account(){
+// Account::~Account(){
 
-};
+// };
 
 bool Account::deposit(double amount){
     if (amount <=0)
@@ -58,5 +58,7 @@ std::string Account::get_name() {
 }
 
 void Account::print(std::ostream &os) const {
+    os.precision(2);
+    os << std::fixed;
     os << "Balance of " << name << ": " << balance;
 }

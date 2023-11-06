@@ -16,7 +16,7 @@ class Account : public I_Printable {
         Account();
         Account(std::string, double balance);
         Account(std::string);
-        ~Account();
+        virtual ~Account() = default;
         virtual bool withdraw(double) = 0;
         virtual bool deposit(double) = 0;
         Account &operator += (double);

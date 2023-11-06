@@ -43,5 +43,5 @@ Trust_acc &Trust_acc::operator -= (double amount){
 }
 
 void Trust_acc::print(std::ostream &os) const {
-    os << "Trust account: " << name << " balance: " << balance << '\n' << "Interest: " << interest << "%";
+    os << "Trust account: " << name << " balance: " << balance << " Interest: " << interest << "%";
 }

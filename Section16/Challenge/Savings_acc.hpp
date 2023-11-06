@@ -13,7 +13,7 @@ class Savings_acc : public Account {
     Savings_acc(std::string, double);
     Savings_acc(std::string);
     Savings_acc();
-    ~Savings_acc();
+    virtual ~Savings_acc();
     virtual bool deposit(double) override;
     virtual bool withdraw(double) override;
     Account &operator += (double);
