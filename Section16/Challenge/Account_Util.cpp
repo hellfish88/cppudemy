@@ -5,7 +5,7 @@ void display(const std::vector<Account*> &accounts) {
     if (accounts.empty()){
         std::cout << "Array is empty" << std::endl;
     }  else{
-        for (auto &account : accounts){
+        for (const auto account : accounts){
             std::cout << *account << '\n';
             // account->deposit(2000);
         }
