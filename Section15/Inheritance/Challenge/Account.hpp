@@ -16,7 +16,7 @@ class Account {
         Account(std::string, double balance);
         Account(std::string);
         ~Account();
-        bool withdraw(double);
+        virtual bool withdraw(double);
         bool deposit(double);
         Account &operator += (double);
         Account &operator -= (double);

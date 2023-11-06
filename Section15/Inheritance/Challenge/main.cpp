@@ -32,7 +32,7 @@ int main(){
     // std::cout << test3 << std::endl;
     // std::cout << test4 << std::endl;
 
-    Savings_acc *p1 = new Savings_acc{"Test"};
+    Account *p1 = new Checkings_acc{"Test"};
 
     p1->deposit(100);
     p1->withdraw(50);
