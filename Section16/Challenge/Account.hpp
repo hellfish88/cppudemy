@@ -17,10 +17,11 @@ class Account : public I_Printable {
         Account(std::string, double balance);
         Account(std::string);
         ~Account();
-        bool withdraw(double);
-        bool deposit(double);
+        virtual bool withdraw(double) = 0;
+        virtual bool deposit(double) = 0;
         Account &operator += (double);
         Account &operator -= (double);
+        virtual std::string get_name();
         virtual void print(std::ostream&) const override;
 
 

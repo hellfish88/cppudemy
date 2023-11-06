@@ -8,7 +8,7 @@ class I_Printable {
 
     public:
         virtual void print(std::ostream &os) const = 0;
-        virtual ~I_Printable() { std::cout << "Iprintable destructor" << std::endl; };
+        virtual ~I_Printable() { };
 
 
 };

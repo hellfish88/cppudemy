@@ -21,6 +21,10 @@ bool Savings_acc::deposit(double amount){
     return Account::deposit(amount);
 }
 
+bool Savings_acc::withdraw(double amount){
+    return Account::withdraw(amount);
+}
+
 Account &Savings_acc::operator += (double amount){
     deposit(amount);
     return *this;
@@ -38,3 +42,7 @@ bool Savings_acc::set_interest(double intr){
 Savings_acc::~Savings_acc(){
 
 };
+
+void Savings_acc::print(std::ostream &os) const {
+    os << "Trust account: " << name << " balance: " << balance << '\n' << "Interest: " << interest << "%";
+}

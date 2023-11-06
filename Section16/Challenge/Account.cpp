@@ -52,6 +52,11 @@ Account &Account::operator -= (double amount){
 //     return os;
 // }
 
+
+std::string Account::get_name() {
+    return name;
+}
+
 void Account::print(std::ostream &os) const {
     os << "Balance of " << name << ": " << balance;
 }

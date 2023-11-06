@@ -33,11 +33,13 @@ int main(){
     // std::cout << test4 << std::endl;
 
 
-    Trust_acc test1{"Testkonto"};
-    test1.deposit(100);
-    test1.withdraw(50);
+    Savings_acc test1{"Testkonto"};
+    // Account test1 = new Savings_acc();
+    // test1.set_interest(15);
+    // test1.deposit(100000);
+    // test1.withdraw(50);
     
     std::cout << test1 << std::endl;
 
-    return 0;
+    return 0;   
 }

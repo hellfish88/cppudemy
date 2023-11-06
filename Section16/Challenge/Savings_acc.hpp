@@ -14,12 +14,11 @@ class Savings_acc : public Account {
     Savings_acc(std::string);
     Savings_acc();
     ~Savings_acc();
-    bool deposit(double);
+    virtual bool deposit(double) override;
+    virtual bool withdraw(double) override;
     Account &operator += (double);
     bool set_interest(double);
-
-
-
+    virtual void print(std::ostream &os) const override;
 
 };
 
