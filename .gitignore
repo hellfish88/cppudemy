@@ -1,0 +1,27 @@
+### VisualStudioCode ###
+# .vscode/*
+# .codelite/*
+# .vscode/settings.json
+# .vscode/tasks.json
+# .vscode/launch.json
+# .vscode/extensions.json
+# .vscode/*.code-snippets
+# .vscode/*.exe
+*
+!*.cpp
+!*.hpp
+!*.h
+!*.gitignore
+!*/
+!*.md
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensionss
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
