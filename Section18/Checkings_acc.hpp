@@ -12,6 +12,7 @@ class Checkings_acc : public Account {
     public:
         Checkings_acc();
         Checkings_acc(std::string);
+        Checkings_acc(std::string, double);
         virtual ~Checkings_acc();
         virtual bool withdraw(double) override;
         virtual bool deposit(double) override;

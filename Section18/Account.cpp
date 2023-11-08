@@ -1,9 +1,12 @@
 #include "Account.hpp"
 
+
 Account::Account(std::string Name, double Balance)
     : name(Name), balance(Balance){
-
+        if (Balance < 0)
+            throw IllegalBalanceException{};
 };
+
 
 Account::Account(std::string Name)
     : Account(Name, 0.0){

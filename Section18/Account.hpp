@@ -3,9 +3,10 @@
 #include <iostream>
 #include <string>
 #include "I_Printable.hpp"
+#include "IllegalBalanceException.hpp"
 
 // Normal account. Name and balance
-class Account : public I_Printable {
+class Account : public I_Printable, IllegalBalanceException {
     // friend std::ostream &operator << (std::ostream&, const Account&);
     private:
 

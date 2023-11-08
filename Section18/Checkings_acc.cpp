@@ -5,6 +5,11 @@ Checkings_acc::Checkings_acc(std::string Name)
 
 };
 
+Checkings_acc::Checkings_acc(std::string Name, double bal)
+    : Account(Name, bal){
+
+};
+
 Checkings_acc::Checkings_acc()
     : Checkings_acc("Default checkings account"){
 
