@@ -1,11 +1,13 @@
 #include "Account.hpp"
 
 
+ 
 Account::Account(std::string Name, double Balance)
-    : name(Name), balance(Balance){
-        if (Balance < 0)
-            throw IllegalBalanceException{};
-};
+    : name(Name), balance(check_balance(Balance)){
+        // if (Balance < 0.0 )
+        //     throw IllegalBalanceException();
+}
+
 
 
 Account::Account(std::string Name)
@@ -29,6 +31,18 @@ bool Account::deposit(double amount){
     return true;
 };
 
+double Account::check_balance(double bal){
+    try {
+        if (bal < 0.0){
+            throw IllegalBalanceException();
+        } else {
+            return bal;
+        }
+    } catch (const IllegalBalanceException &ex) {
+        std::cerr << ex.what() << std::endl;
+        return 0;
+    }
+}
 
 bool Account::withdraw(double amount){
     if (balance < amount){

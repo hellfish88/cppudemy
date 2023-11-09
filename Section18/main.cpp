@@ -10,8 +10,14 @@ int main(){
     // Account *test2 = new Savings_acc{"Savings acc"};
     // Account *test3 = new Trust_acc{"Trust acc"};
 
-    std::unique_ptr<Account> test1 = std::make_unique<Checkings_acc>("Testkonto", -15);
+    std::unique_ptr<Account> test1;
+    test1 = std::make_unique<Checkings_acc>("Testkonto", -15);
 
+    // try {
+    //     test1 = std::make_unique<Checkings_acc>("Testkonto", -15);
+    // } catch (const IllegalBalanceException &ex) {
+    //     std::cerr << ex.what();
+    // }
 
     // Account test1 = new Savings_acc();
     test1->deposit(10000);

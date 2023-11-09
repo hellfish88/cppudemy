@@ -9,7 +9,7 @@
 class Account : public I_Printable, IllegalBalanceException {
     // friend std::ostream &operator << (std::ostream&, const Account&);
     private:
-
+        double check_balance(double);
     protected:
         double balance;
         std::string name;
@@ -24,11 +24,6 @@ class Account : public I_Printable, IllegalBalanceException {
         Account &operator -= (double);
         virtual std::string get_name();
         virtual void print(std::ostream&) const override;
-
-
-
-
-
 };
 
 
