@@ -44,7 +44,7 @@ Tours tour = {
     }
 };
 
-// +tour.countries.at(0).cities.at(1).name.size())
+// +tour.countries.at(0).cities.at(1).name.size()) /// const auto city : country.cities
 
 
 int main () {
@@ -59,13 +59,21 @@ int main () {
     std::cout << std::setw(140) << std::setfill('-') << "-" << "\n" << std::setw(50)  << std::endl;
     for (const auto country : tour.countries ) {
         std::cout << std::setfill(' ') << std::left << country.name;
-        for (const auto city : country.cities ) {
-            std::cout << std::setw(50)
-                << city.name
+        for (size_t i{0}; i < country.cities.size(); i++ ) {
+            size_t indent{};
+            if (i == 0){
+                indent = 10;
+            } else {
+                indent = 50+ country.name.size() + country.cities.at(i-1).name.size() - 4;
+
+            }
+
+            std::cout << std::setw(indent) << std::right
+                << country.cities.at(i).name
                 << std::setw(50)
-                << city.population 
+                << country.cities.at(i).population 
                 << std::setw(33)
-                << city.population << std::endl;
+                << country.cities.at(i).population << std::endl;
         }
     }
 
