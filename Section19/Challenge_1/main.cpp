@@ -18,7 +18,7 @@ struct Tours {
 };
 
 Tours tour = {
-    "Priser från Jönköping",
+    "Priser från jönköping",
     {
         {
             "Thailand", {
@@ -37,7 +37,7 @@ Tours tour = {
         },
         {
             "Sweden", {
-                {"Jönköping", 150000, 0},
+                {"Jönköping", 150000, 10},
                 {"Stockholm", 750000, 5000}
             }
         },
@@ -49,33 +49,38 @@ Tours tour = {
 
 int main () {
 
+    const int total_w {70};
+    const int field1 {20};
+    const int field2 {20};
+    const int field3 {15};
+    const int field4 {15};
+    const int title_len = (total_w /2) + (tour.title.length()/2);
+
+
     hej();
-    std::cout << std::setw(140) << std::setfill('=') << "=" << std::endl;
-    std::cout << std::setw(70) << std::setfill('=') <<  tour.title << std::setw(73) << "=" <<  std::endl;
-    std::cout << std::setw(140) << std::setfill('=') << "=" << "\n\n" << std::endl;
+    std::cout << std::setw(total_w) << std::setfill(' ') << "" << std::endl;
+    std::cout << std::setw(title_len) << std::setfill('=') <<  tour.title << std::setw(total_w-title_len+3) << "" <<  std::endl;
+    std::cout << std::setw(total_w) << std::setfill('=') << "=" << "\n\n" << std::endl;
     std::cout << std::setfill(' ');
     ruler();
-    std::cout << "Country" << std::setw(50) << "City" << std::setw(50) << "Pupulation" << std::setw(33) << "Cost" << std::endl;
-    std::cout << std::setw(140) << std::setfill('-') << "-" << "\n" << std::setw(50)  << std::endl;
+    std::cout   << std::setw(field1) << std::left << "Country"
+                << std::setw(field2) << std::left << "City"
+                << std::setw(field3) << std::right << "Population"
+                << std::setw(field4) << std::right << "Price"
+                << std::endl;
+    std::cout << std::setw(total_w) << std::setfill('-') << "-" << "\n" << std::setw(50)  << std::endl;
+    std::cout << std::setfill(' ') << std::left;
     for (const auto country : tour.countries ) {
-        std::cout << std::setfill(' ') << std::left << country.name;
+        // std::cout << std::setfill(' ') << std::left << country.name;
         for (size_t i{0}; i < country.cities.size(); i++ ) {
-            size_t indent{};
-            if (i == 0){
-                indent = 10;
-            } else {
-                indent = 50+ country.name.size() + country.cities.at(i-1).name.size() - 4;
-
-            }
-
-            std::cout << std::setw(indent) << std::right
-                << country.cities.at(i).name
-                << std::setw(50)
-                << country.cities.at(i).population 
-                << std::setw(33)
-                << country.cities.at(i).population << std::endl;
+            std::cout   << std::setw(field1) << std::left << ((i == 0) ? country.name : "")
+                        << std::setw(field2) << std::left << country.cities.at(i).name
+                        << std::setw(field3) << std::right << country.cities.at(i).population
+                        << std::setw(field4) << std::right << country.cities.at(i).cost
+                        << std::endl;
         }
     }
+    std::cout << std::endl;
 
 
    return 0; 
