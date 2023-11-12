@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <memory>
 #include <cstring>
 #include <iomanip>
 
@@ -65,9 +64,16 @@ int main() {
      char *key = new char [6];
 
     std::ifstream ifile("./files/responses.txt");
+
+    if (!ifile.is_open()){
+        std::cerr << "Could not open file" << std::endl;
+        return 1;
+    }
+
     std::vector<Score> studenter = parse_students(ifile, key);
 
     const int left_field{20};
+    const int middle_field{20};
     const int right_field{20};
 
 
@@ -79,7 +85,10 @@ int main() {
         << std::endl;
     std::cout << std::setw(left_field + right_field) << std::setfill('-') << "-" << std::endl;
     double average {0};
-
+    if (studenter.empty()) {
+        std::cerr << "No students in list. No need to continue" << std::endl;
+        return 1;
+    }
     for (auto student : studenter) {
         std::cout << std::setw(left_field) << std::left << std::setfill(' ')
             << student.student 
@@ -95,8 +104,7 @@ int main() {
         << "Average score" 
         << std::setw(right_field) 
         << std::right
-        << (average / studenter.size());
-
+        << (average / studenter.size()); // Sanity check above so should never be 0
 
     delete [] key;
     ifile.close();
