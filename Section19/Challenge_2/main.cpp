@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <cstring>
+#include <iomanip>
 
 struct Score {
     std::string student;
@@ -19,31 +20,13 @@ bool is_even(int num){
 }
 
 
-void read_file(std::ifstream &infile){
-    std::string line{};
-    std::vector<std::string> test{};
-    if (!infile.is_open()){
-        std::cerr << "Could not open file" << std::endl;
-    }
-    size_t line_number{0};
-    while(std::getline(infile, line)){
-        line_number++;
-        if (line_number > 1) 
-            // std::cout<< line_number << ": " << line << std::endl;
-            test.push_back(line);        
-    }
-    for (int i{0}; i<test.size(); i++){
-        if (is_even(i))
-            std::cout << test.at(i) << " " << test.at(i+1) << std::endl;
-    }
-
-}
-
-std::vector<Score> parse_students(std::ifstream& infile){
+std::vector<Score> parse_students(std::ifstream& infile, char *key){
     std::vector<Score> students{};
     size_t line_number{0};
     std::string line;
     std::vector<std::string> tempvector{};
+
+    infile >> key;
 
     while(std::getline(infile, line)){
         line_number++;
@@ -79,28 +62,44 @@ int grading(char *key, char *answer){
 
 int main() {
 
-    
-
-    
+     char *key = new char [6];
 
     std::ifstream ifile("./files/responses.txt");
-    std::vector<Score> studenter = parse_students(ifile);
-    // // std::string line {};
+    std::vector<Score> studenter = parse_students(ifile, key);
 
-    read_file(ifile);
+    const int left_field{20};
+    const int right_field{20};
 
-    for (auto val : studenter) {
-        std::cout << "Studenten " << val.student << " svarade: " << val.reply << std::endl;
+
+    std::cout << std::setw(left_field) << std::left
+        << "Student"
+        << std::setw(right_field)
+        << std::right
+        << "Score"
+        << std::endl;
+    std::cout << std::setw(left_field + right_field) << std::setfill('-') << "-" << std::endl;
+    double average {0};
+
+    for (auto student : studenter) {
+        std::cout << std::setw(left_field) << std::left << std::setfill(' ')
+            << student.student 
+            << std::setw(right_field)
+            << std::right
+            << grading(key, student.reply)
+            << std::endl;
+        average += grading(key, student.reply);
     }
+    std::cout << std::setw(left_field + right_field) << std::setfill('-') << "-" << std::endl;
+    std::cout << std::setfill(' ') << std::left 
+        <<  std::setw(left_field)
+        << "Average score" 
+        << std::setw(right_field) 
+        << std::right
+        << (average / studenter.size());
 
-    // ifile.close();
 
-    // char *nyckel [5] = {"ABCDE"};
-    // char *svar [5] = {"ABCDE"};
-    // Score Moe {"Moe", *svar};
-    // std::cout << Moe.reply << std::endl;
-
-    // std::cout << grading(*nyckel, *svar) << std::endl;
+    delete [] key;
+    ifile.close();
 
     return 0;
 }
