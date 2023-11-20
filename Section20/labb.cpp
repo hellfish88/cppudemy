@@ -34,11 +34,16 @@ int main () {
     
     // int a = 15;
     // int b = 20;
+    std::vector<int> nums (17, 6);
 
+    std::cout << nums.capacity() << std::endl;
+
+    nums.push_back(6);
+    std::cout << nums.capacity() << std::endl;
 
     std::string a = "a";
     std::string b = "b";
-    std::cout << dubbla(a, b) << std::endl; 
+    // std::cout << dubbla(a, b) << std::endl; 
 
     return 0;
 }
