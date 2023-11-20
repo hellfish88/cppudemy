@@ -25,14 +25,17 @@ class Song {
         Song() : title{"Unknown"}, artist{"unknown"}, rating{0} {};
         Song(std::string namevar, std::string artistvar, int ratingvar) 
             : title{namevar}, artist{artistvar}, rating{ratingvar} {};
-
+        Song(std::string searchvar) : title{searchvar} {};
         bool operator<(const Song &rhs) const  {
             return this->title < rhs.title;
         }
         
         bool operator==(const Song &rhs) const  {
-            return this->title == rhs.title;
-        }  
+            if (this->title == rhs.title)
+                return true;
+            else {return false;}
+        }
+        std::string get_title() { return title; }
         ~Song() = default;
 };
 

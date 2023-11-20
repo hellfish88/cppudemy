@@ -1,4 +1,4 @@
-#include ".\Song.hpp"
+#include "Song.hpp"
 #include <list>
 
 
@@ -8,11 +8,14 @@ void display (std::list<Song> &songs){
     }
 }
 
-void play_song (Song it) {
-    std::cout << it; 
+// template <typename T>
+// void play_song (T &it) {
+//     std::cout << *it; 
+// }
+
+void play_song (std::_List_iterator<Song> &it) {
+    std::cout << *it; 
 }
-
-
 int main() {
     Song song1;
     Song song2{"Genesarets Sjo", "Kjell Höglund", 5};
@@ -20,12 +23,16 @@ int main() {
     Song song3{"Through the fire and flames", "Dragonball", 4};
 
     std::list songs {song1, song2, song3};
-    // auto it = std::find(songs.begin(), songs.end(), "Genesarets Sjo");
+    auto it = std::find(songs.begin(), songs.end(), Song("Genesarets Sjo"));
 
-    // std::cout << song2 == song2_5;
-    std::cout << song2 < song3;
-    // std::cout << song2 == song3;
-    display(songs);
+    play_song(it);
+
+
+    // std::cout << *it << std::endl;
+    // std::cout << *(std::prev(it)) << std::endl;
+    // std::cout << *it << std::endl;
+
+    // display(songs);
 
     return 0;
 }
