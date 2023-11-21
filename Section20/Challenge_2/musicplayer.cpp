@@ -3,6 +3,7 @@
 #include <limits>
 #include <ios>
 
+
 void display_playlist (std::list<Song> &songs){
     for (const auto &song : songs){
         std::cout << song;
@@ -87,6 +88,7 @@ void action(std::list<Song> songs) {
 
 
 int main() {
+
     Song song1;
     Song song2{"Genesarets Sjo", "Kjell Hoglund", 5};
     // Song song2_5{"Genesarets Sjo", "Kjell Hoglund", 5};
