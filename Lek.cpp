@@ -2,31 +2,36 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <bitset>
+#include <unordered_set>
+#include <memory>
+ #include <numeric>
 
 class Solution {
 public:
-    bool isMatch(std::string s, std::string p) {
-     return true;
-    };
-};
+    double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
+        std::vector<int> merged;
+        merged.reserve((nums1.size() + nums2.size()));
+        merged.insert(merged.end(), nums1.begin(), nums1.end());
+        merged.insert(merged.end(), nums2.begin(), nums2.end());
+        
+        double result = std::reduce(merged.begin(), merged.end());
 
+        return result / merged.size();
+    }
+};
 
 int main () {
 
-    std::string test {"fisk"};
-    Solution test2;
 
-    test2.isMatch(test, "hejsan");
-
-
-    std::vector<int> nums {1,2,3,4,5};
-    std::vector<int> adds {6,7,8,9};
+    Solution test;
     
-    auto it = std::find(nums.begin(), nums.end(), 5);
+    std::vector<int> nums1{1,3};
+    std::vector<int> nums2{2,7};
 
-    std::back_inserter()
+    std::cout << test.findMedianSortedArrays(nums1, nums2);
 
-    std::cout << *it << std::endl;
+    
 
     return 0;
 }
