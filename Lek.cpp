@@ -5,19 +5,20 @@
 #include <bitset>
 #include <unordered_set>
 #include <memory>
- #include <numeric>
+#include <numeric>
+#include <array>
 
 class Solution {
 public:
-    double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
-        std::vector<int> merged;
-        merged.reserve((nums1.size() + nums2.size()));
-        merged.insert(merged.end(), nums1.begin(), nums1.end());
-        merged.insert(merged.end(), nums2.begin(), nums2.end());
-        
-        double result = std::reduce(merged.begin(), merged.end());
-
-        return result / merged.size();
+    std::string longestPalindrome(std::string s) {
+        auto ispal = [] (std::string &x) {
+            std::vector<char> placeholder;
+            for(char c:x)
+                placeholder.push_back(c);
+            return std::equal(placeholder.begin(), placeholder.end(), placeholder.rbegin());
+        };
+        std::cout << ispal(s);
+        return "temp";
     }
 };
 
@@ -26,10 +27,9 @@ int main () {
 
     Solution test;
     
-    std::vector<int> nums1{1,3};
-    std::vector<int> nums2{2,7};
+    std::string s {"bababb"};
 
-    std::cout << test.findMedianSortedArrays(nums1, nums2);
+    std::cout << test.longestPalindrome(s);
 
     
 
